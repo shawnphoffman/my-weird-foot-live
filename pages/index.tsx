@@ -139,7 +139,7 @@ function Example() {
   return (
     <>
       <div
-        className="relative flex h-screen w-full touch-none items-center justify-center overflow-hidden"
+        className="relative flex items-center justify-center w-full h-screen overflow-hidden touch-none"
         style={{
           cursor:
             state.mode === CursorMode.Chat
@@ -209,7 +209,7 @@ function Example() {
                 <img src="cursor.svg" />
 
                 <div
-                  className="absolute top-5 left-2 bg-blue-500 px-4 py-2 text-sm leading-relaxed text-white"
+                  className="absolute px-4 py-2 text-sm leading-relaxed text-white bg-blue-500 top-5 left-2"
                   onKeyUp={(e) => e.stopPropagation()}
                   style={{
                     borderRadius: 20,
@@ -217,7 +217,7 @@ function Example() {
                 >
                   {state.previousMessage && <div>{state.previousMessage}</div>}
                   <input
-                    className="w-60 border-none	bg-transparent text-white placeholder-blue-300 outline-none"
+                    className="text-white placeholder-blue-300 bg-transparent border-none outline-none w-60"
                     autoFocus={true}
                     onChange={(e) => {
                       updateMyPresence({ message: e.target.value });
@@ -255,8 +255,12 @@ function Example() {
               />
             )}
             {state.mode === CursorMode.Reaction && (
-              <div className="pointer-events-none absolute top-3.5 left-1 select-none">
-                {state.reaction}
+              <div className="pointer-events-none absolute top-3.5 left-1 w-8 select-none">
+                {state.reaction.length > 10 ? (
+                  <img className="w-8 h-8" src={state.reaction} alt="" />
+                ) : (
+                  state.reaction
+                )}
               </div>
             )}
           </div>
@@ -293,26 +297,26 @@ export default function Page() {
         message: "",
       })}
     >
-      <div className="fixed inset-0 flex select-none items-center justify-center bg-white">
+      <div className="fixed inset-0 flex items-center justify-center bg-gray-900 select-none">
         <div className="max-w-sm text-center">
-          <ul className="mt-4 flex items-center justify-center space-x-2">
-            <li className="flex items-center space-x-2 rounded-md bg-gray-100 py-2 px-3 text-sm">
+          <ul className="flex items-center justify-center mt-4 space-x-2">
+            <li className="flex items-center px-3 py-2 space-x-2 text-sm text-white bg-gray-700 rounded-md">
               <span>Reactions</span>
-              <span className="block rounded border border-gray-300 px-1 text-xs font-medium uppercase text-gray-500">
+              <span className="block px-1 text-xs font-medium uppercase border border-gray-300 rounded text-gray-50">
                 E
               </span>
             </li>
 
-            <li className="flex items-center space-x-2 rounded-md bg-gray-100 py-2 px-3 text-sm">
+            <li className="flex items-center px-3 py-2 space-x-2 text-sm text-white bg-gray-700 rounded-md">
               <span>Chat</span>
-              <span className="block rounded border border-gray-300 px-1 text-xs font-medium uppercase text-gray-500">
+              <span className="block px-1 text-xs font-medium uppercase border border-gray-300 rounded text-gray-50">
                 /
               </span>
             </li>
 
-            <li className="flex items-center space-x-2 rounded-md bg-gray-100 py-2 px-3 text-sm">
+            <li className="flex items-center px-3 py-2 space-x-2 text-sm text-white bg-gray-700 rounded-md">
               <span>Escape</span>
-              <span className="block rounded border border-gray-300 px-1 text-xs font-medium uppercase text-gray-500">
+              <span className="block px-1 text-xs font-medium uppercase border border-gray-300 rounded text-gray-50">
                 esc
               </span>
             </li>

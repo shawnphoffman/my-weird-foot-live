@@ -6,10 +6,10 @@ function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <title>Liveblocks</title>
+        <title>My Weird Foot - Live</title>
         <meta name="robots" content="noindex" />
         <meta name="viewport" content="width=device-width, user-scalable=no" />
-        <link
+        {/* <link
           href="https://liveblocks.io/favicon-32x32.png"
           rel="icon"
           sizes="32x32"
@@ -20,7 +20,7 @@ function App({ Component, pageProps }: AppProps) {
           rel="icon"
           sizes="16x16"
           type="image/png"
-        />
+        /> */}
       </Head>
       <Component {...pageProps} />
     </>

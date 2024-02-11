@@ -16,8 +16,12 @@ export default function FlyingReaction({ x, y, timestamp, value }: Props) {
       style={{ left: x, top: y }}
     >
       <div className={styles["leftRight" + (timestamp % 3)]}>
-        <div className="-translate-x-1/2 -translate-y-1/2 transform">
-          {value}
+        <div className="transform -translate-x-1/2 -translate-y-1/2">
+          {value.length > 10 ? (
+            <img className="w-8 h-8" src={value} alt="" />
+          ) : (
+            value
+          )}
         </div>
       </div>
     </div>
