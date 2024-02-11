@@ -24,7 +24,7 @@ export default function ReactionSelector({ setReaction }: Props) {
 
   return (
     <div
-      className="px-2 transform -translate-x-1/2 -translate-y-1/2 bg-gray-800 rounded-full"
+      className="flex flex-row flex-wrap items-center justify-center px-2 transform -translate-x-1/2 -translate-y-1/2 bg-gray-800 rounded-lg max-w-56"
       style={styles}
       onPointerMove={(e) => e.stopPropagation()}
     >
@@ -76,7 +76,7 @@ function ImageButton({ image, onSelect }: ImageButtonProps) {
       className="p-2 text-xl transition-transform transform select-none hover:scale-150 focus:scale-150 focus:outline-none"
       onPointerDown={() => onSelect(image.src)}
     >
-      <img className="w-4 h-4" src={image.src} alt="" />
+      <img className="h-7 w-7" src={image.src} alt="" />
     </button>
   );
 }
